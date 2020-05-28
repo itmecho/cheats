@@ -1,0 +1,7 @@
+% aws, instance, type
+
+# Check instance types availability
+aws --region <region> ec2 describe-instance-type-offerings --location-type availability-zone --query "InstanceTypeOfferings[?InstanceType == '<type>']"
+
+$ region: aws ec2 describe-regions --output json | jq -r '.Regions[].RegionName'
+$ type: aws --region $region ec2 describe-instance-type-offerings --output json | jq -r '.InstanceTypeOfferings[].InstanceType'
